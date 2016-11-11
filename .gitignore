@@ -3,3 +3,5 @@ node_modules
 secret.js
 
 sweetalert-master
+
+stripeSecretKeys.js

@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const massive = require('massive');
 const stripeKey = require('./stripeSecretKeys');
 
-const stripe = require('stripe')('sk_test_aFpqXS7CV7oE57RCDDZ9iJB4');
+const stripe = require('stripe')('stripeSecretKeys.secretKey');
 
 const secret = require('./secret');
 //===INITIALIZE EXPRESS APP===================
@@ -85,6 +85,7 @@ app.delete('/api/delete/item/cart/:itemid', productsCtrl.deleteCartItem);
 
 //STRIPE ENDPOINTS
 app.post('/charge', (req, res) => {
+
   var stripeToken = req.body;
   console.log('here is the stripe token: ');
   console.log(stripeToken);
