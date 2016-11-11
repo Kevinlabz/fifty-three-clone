@@ -1,7 +1,7 @@
 <nav-dir></nav-dir>
 <main class="cart-outer-wrapper" ng-controller='cartCtrl'>
   <p style="width: 100px; z-index: 2">
-    {{userCart}}
+    <!-- {{userCart}} -->
   </p>
   <section class="cart-wrapper">
     <div class="your-cart">Your cart</div>
@@ -13,7 +13,7 @@
     <hr>
     <!-- ▼ NG_REPEAT OVER THIS DIV ▼ -->
     <div class="cart-item-wrapper" ng-repeat='item in userCart.products track by $index'>
-      {{item}}
+      <!-- {{item}} -->
       <div class="item-inner-wrapper">
         <div class="thumbnail-wrap">
           <img class='thumbnail' ng-src="./../..{{item.image_path}}" style='height: 100px; width: 100px' alt="{{item.name}}" />
@@ -33,10 +33,10 @@
       <hr>
     </div>
     <div class="total-wrap">
-      <div class="total">Total</div>
+      <div class="total">Total:</div>
       <div class="total-num">{{schmotal | currency}}</div>
     </div>
-    <div class="checkout-wrap">
+    <!-- <div class="checkout-wrap">
       <div class="shipping-wrap">
         <div class="shipping-to">Shipping to:</div>
         <div class="country-wrap">
@@ -45,12 +45,12 @@
           <div class="menu"></div>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
   <button ng-click='placeOrder(userCart.order.user_id, userCart.order.id)' type="button" style="position: fixed; bottom: 20px; right: 100px">Place Order</button>
 </main>
 
-<section class="add-extras-wrapper">
+<!-- <section class="add-extras-wrapper">
   <div class="add-extras">Add Extras</div>
   <div class="replacement-wrapper">
     <div class="replacement">Replacements Tips and Eraser</div>
@@ -59,6 +59,14 @@
     <div class="added">Add</div>
   </div>
   <div class=""></div>
+</section> -->
+
+<!-- PLACE ORDER POP OUT -->
+
+<section class="place-order-wrap">
+  <div class="text"></div>
 </section>
+
+
 
 <footer-dir></footer-dir>

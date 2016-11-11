@@ -61,6 +61,56 @@
       .cart-outer-wrapper .cart-wrapper .cart-item-wrapper .item-inner-wrapper .item-total {
         width: 100px;
         margin: 0 0 0 77px; }
+    .cart-outer-wrapper .cart-wrapper .total-wrap {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 50px;
+      margin-bottom: 50px; }
+      .cart-outer-wrapper .cart-wrapper .total-wrap .total {
+        margin-right: 10px;
+        font-size: 22px; }
+      .cart-outer-wrapper .cart-wrapper .total-wrap .total-num {
+        margin-right: 45px;
+        font-size: 22px; }
+
+.place-order-wrap {
+  width: 50px;
+  height: 100px;
+  position: fixed;
+  background: #EB5E28;
+  top: 200px;
+  right: 0px;
+  border-radius: 50% 0 0 50%;
+  display: flex;
+  justify-content: center;
+  border-left: solid;
+  border-top: solid;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: #66625B; }
+  .place-order-wrap .text {
+    background: url("./../images/checkout.png");
+    background-size: contain;
+    display: flex;
+    align-items: center; }
+
+.place-order-wrap:active {
+  background: #B33C12;
+  animation-name: slideout;
+  animation-duration: 1s; }
+
+@keyframes slideout {
+  from {
+    top: 200px;
+    right: 0px; }
+  to {
+    top: 200px;
+    right: 20px; } }
+
+.stripe-button {
+  width: 50px;
+  height: 50px;
+  background: blue; }
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:300");
 .paper-main-container {
@@ -1494,7 +1544,7 @@
       font-size: 25px;
       border: none;
       cursor: pointer; }
-    .dk-outer-wrapper .dk-container .dk-password:focus {
+    .dk-outer-wrapper .dk-container .dk-sign-in-btn:focus {
       outline: none; }
 
 .kd-outer-wrapper {

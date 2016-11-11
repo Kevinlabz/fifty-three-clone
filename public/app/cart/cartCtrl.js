@@ -72,8 +72,19 @@ $scope.placeOrder = (user_id, order_id) => {
 }
 
 
-//===SUBTOTAL==============
-
+//===JQUERY==============
+// $(() => {
+//   $('.place-order-wrap').mouseover(() => {
+//     $('.place-order-wrap').css({
+//       "background": "black"
+//     })
+//   });
+//   $('.place-order-wrap').mouseleave(() => {
+//     $('.place-order-wrap').css({
+//       "background": "red"
+//     })
+//   });
+// })
 
 
 

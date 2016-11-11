@@ -17,6 +17,17 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js'></script>
     <script src="./sweetalert-master/dist/sweetalert.min.js"></script>
     <script src='./dist/all.js'></script>
-
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <form action="/charge" method="POST">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_oG3v6EKMryCurl1Q4D8tlv3m"
+                data-image="./../images/53-light.svg"
+                data-name="FiftyThree"
+                data-description="Send lots of love"
+                data-amount="49.95"
+                data-billing-address="true"
+                data-label="Checkout">
+        </script>
+    </form>
   </body>
 </html>

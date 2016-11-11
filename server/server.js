@@ -4,6 +4,9 @@ const session = require('express-session');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const massive = require('massive');
+const stripeKey = require('./stripeSecretKeys');
+
+const stripe = require('stripe')('sk_test_aFpqXS7CV7oE57RCDDZ9iJB4');
 
 const secret = require('./secret');
 //===INITIALIZE EXPRESS APP===================
@@ -79,6 +82,28 @@ app.delete('/api/delete/item/cart/:itemid', productsCtrl.deleteCartItem);
 // app.get('/api/products', productsCtrl.getProducts);
 // app.get('/api/cart', productsCtrl.getCart);
 
+
+//STRIPE ENDPOINTS
+app.post('/charge', (req, res) => {
+  var stripeToken = req.body;
+  console.log('here is the stripe token: ');
+  console.log(stripeToken);
+  var amount = 100;
+
+  stripe.charges.create({
+    card: stripeToken,
+    currency: 'usd',
+    source: stripeToken,
+    amount: amount
+  },
+  function(err, charge) {
+    if (err) {
+      res.status(500).send( err);
+    } else {
+      res.status(204).send();
+    }
+  });
+});
 
 
 //===PORT====================================

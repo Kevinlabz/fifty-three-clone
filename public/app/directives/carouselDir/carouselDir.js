@@ -83,7 +83,12 @@ angular.module('fifty-three')
             $scope.addToCart($scope.pencil);
           }
         }).catch((err) => {
-          alert('Unable to login');
+          swal({
+            type: "error",
+            title: "Log in failed.",
+            confirmButtonText: "Ok",
+            animation: "slide-from-top"
+          })
         })
       }
 

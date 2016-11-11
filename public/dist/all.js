@@ -141,7 +141,19 @@ angular.module('fifty-three').controller('cartCtrl', function ($scope, cartServi
     });
   };
 
-  //===SUBTOTAL==============
+  //===JQUERY==============
+  // $(() => {
+  //   $('.place-order-wrap').mouseover(() => {
+  //     $('.place-order-wrap').css({
+  //       "background": "black"
+  //     })
+  //   });
+  //   $('.place-order-wrap').mouseleave(() => {
+  //     $('.place-order-wrap').css({
+  //       "background": "red"
+  //     })
+  //   });
+  // })
 
 
   //===END CTRL=======
@@ -540,15 +552,6 @@ angular.module('fifty-three').controller('shopCtrl', function ($scope, shopServi
 angular.module('fifty-three').service('shopService', function ($http, $q) {});
 'use strict';
 
-angular.module('fifty-three').directive('footerDir', function () {
-  return {
-    restrict: 'AE',
-    templateUrl: './app/directives/footerDir/footerDir.html',
-    controller: function controller($scope) {}
-  };
-});
-'use strict';
-
 angular.module('fifty-three').directive('carouselDir', function () {
 
   return {
@@ -631,7 +634,12 @@ angular.module('fifty-three').directive('carouselDir', function () {
             $scope.addToCart($scope.pencil);
           }
         }).catch(function (err) {
-          alert('Unable to login');
+          swal({
+            type: "error",
+            title: "Log in failed.",
+            confirmButtonText: "Ok",
+            animation: "slide-from-top"
+          });
         });
       };
 
@@ -756,6 +764,15 @@ angular.module('fifty-three').service('carouselDirService', function ($http, $q)
   };
 
   //==END=====
+});
+'use strict';
+
+angular.module('fifty-three').directive('footerDir', function () {
+  return {
+    restrict: 'AE',
+    templateUrl: './app/directives/footerDir/footerDir.html',
+    controller: function controller($scope) {}
+  };
 });
 'use strict';
 

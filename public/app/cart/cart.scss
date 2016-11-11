@@ -89,8 +89,18 @@ $cart-font-color: #A49E93;
       }
     }
     .total-wrap {
-      .total {}
-      .total-num {}
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      .total {
+        margin-right: 10px;
+        font-size: 22px;
+      }
+      .total-num {
+        margin-right: 45px;
+        font-size: 22px;
+      }
     }
     .checkout-wrap {
       .shipping-wrap {
@@ -103,4 +113,45 @@ $cart-font-color: #A49E93;
       }
     }
   }
+}
+
+
+//Place order
+.place-order-wrap {
+  width: 50px;
+  height: 100px;
+  position: fixed;
+  background: #EB5E28;
+  top: 200px;
+  right: 0px;
+  border-radius: 50% 0 0 50%;
+  display: flex;
+  justify-content: center;
+  border-left: solid;
+  border-top: solid;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: $paper-text-color;
+  .text {
+    background: url('./../images/checkout.png');
+    background-size: contain;
+    display: flex;
+    align-items: center;
+  }
+}
+.place-order-wrap:active {
+  background: #B33C12;
+  animation-name: slideout;
+  animation-duration: 1s;
+}
+
+@keyframes slideout {
+  from {top: 200px; right: 0px}
+  to {top: 200px; right: 20px}
+}
+
+.stripe-button {
+  width: 50px;
+  height: 50px;
+  background: blue;
 }
