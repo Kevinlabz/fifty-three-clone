@@ -7,20 +7,27 @@
     <link rel="stylesheet" type="text/css" href="./sweetalert-master/dist/sweetalert.css">
     <title>Paper & Pencil by FiftyThree</title>
   </head>
-  <body>
+  <body ng-controller="mainCtrl">
 
 <ui-view autoscroll='true'></ui-view>
 
-
+    <script src="https://js.stripe.com/v2/"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js'></script>
     <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js'></script>
     <script src="./sweetalert-master/dist/sweetalert.min.js"></script>
     <script src='./dist/all.js'></script>
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <form action="/charge" method="POST">
+
+    <script src="./mainCtrl.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-stripe/4.2.12/angular-stripe.js"></script>
+    <!-- <script src="https://js.stripe.com/v2/"></script> -->
+    <!-- <script>
+      Stripe.setPublishableKey('pk_test_oG3v6EKMryCurl1Q4D8tlv3m');
+    </script> -->
+
+    <!-- <form action="/charge" method="POST">
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key=""
+                data-key="pk_test_oG3v6EKMryCurl1Q4D8tlv3m"
                 data-image="./../images/53-light.svg"
                 data-name="FiftyThree"
                 data-description="Send lots of love"
@@ -28,6 +35,63 @@
                 data-billing-address="true"
                 data-label="Checkout">
         </script>
+    </form> -->
+
+
+    <!-- <form stripe:form="saveCustomer" action="/charge" method="POST" id="payment-form">
+      <fieldset>
+        <input type="text" size="20" data-stripe="number"/>
+        <input type="text" size="4" data-stripe="cvc"/>
+        <input type="text" size="2" data-stripe="exp-month"/>
+        <input type="text" size="4" data-stripe="exp-year"/>
+      </fieldset>
+      <button class="submit" type="submit">Save</button>
     </form>
+
+<script type="text/javascript">
+    $(function(stripeResponseHandler) {
+      console.log("test2");
+      var $form = $('#payment-form');
+      $form.submit(function(event) {
+        console.log("test4");
+        // Disable the submit button to prevent repeated clicks:
+        $form.find('.submit').prop('disabled', true);
+
+        // Request a token from Stripe:
+        Stripe.card.createToken($form, stripeResponseHandler);
+
+        // Prevent the form from being submitted:
+        // return false;
+      });
+    });
+    var $form = $('#payment-form');
+      $form.submit(function(event) {
+          function stripeResponseHandler(status, response) {
+            console.log("test1");
+            // Grab the form:
+            var $form = $('#payment-form');
+
+            if (response.error) { // Problem!
+
+              // Show the errors on the form:
+              $form.find('.payment-errors').text(response.error.message);
+              $form.find('.submit').prop('disabled', false); // Re-enable submission
+
+            } else { // Token was created!
+
+              // Get the token ID:
+              var token = response.id;
+
+              // Insert the token ID into the form so it gets submitted to the server:
+              $form.append($('<input type="hidden" name="stripeToken">').val(token));
+
+              // Submit the form:
+              $form.get(0).submit();
+            }
+          };
+        });
+
+
+</script> -->
   </body>
 </html>

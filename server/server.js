@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const massive = require('massive');
 const stripeKey = require('./stripeSecretKeys');
 
-const stripe = require('stripe')('stripeSecretKeys.secretKey');
+const stripe = require('stripe')(stripeKey.secretKey);
 
 const secret = require('./secret');
 //===INITIALIZE EXPRESS APP===================
@@ -92,9 +92,13 @@ app.post('/charge', (req, res) => {
   var amount = 100;
 
   stripe.charges.create({
-    card: stripeToken,
     currency: 'usd',
-    source: stripeToken,
+    source: {
+      number: '4242424242424242',
+      cvc: '111',
+      exp_month: 12,
+      exp_year:2017
+    },
     amount: amount
   },
   function(err, charge) {
@@ -104,6 +108,23 @@ app.post('/charge', (req, res) => {
       res.status(204).send();
     }
   });
+});
+
+
+// payment
+app.post('/api/payment', function(req, res, next){
+  console.log(req.body);
+  var charge = stripe.charges.create({
+  amount: 1000, // amount in cents, again
+  currency: 'usd',
+  source: req.body.token,
+  description: 'Example charge 53'
+}, function(err, charge) {
+     res.sendStatus(200);
+  // if (err && err.type === 'StripeCardError') {
+  //   // The card has been declined
+  // }
+});
 });
 
 

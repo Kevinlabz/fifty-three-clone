@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('fifty-three', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+angular.module('fifty-three', ['ui.router', 'angular-stripe']).config(function ($stateProvider, $urlRouterProvider, stripeProvider) {
+
+  stripeProvider.setPublishableKey('pk_test_oG3v6EKMryCurl1Q4D8tlv3m');
 
   $urlRouterProvider.otherwise('/pencil');
 
@@ -68,6 +70,17 @@ angular.module('fifty-three').service('authService', function ($http) {
         id: productid,
         qty: qty
       }
+    });
+  };
+});
+'use strict';
+
+angular.module('fifty-three').service('stripeService', function ($http) {
+
+  this.getToken = function () {
+    return $http({
+      method: 'POST',
+      url: '/charge'
     });
   };
 });
@@ -187,13 +200,28 @@ angular.module('fifty-three').service('cartService', function ($http, $q, $state
 });
 'use strict';
 
-angular.module('fifty-three').controller('paperCtrl', function ($scope, $timeout) {
+angular.module('fifty-three').controller('paymentCtrl', function ($scope, $state, stripe, $http) {
 
-  $timeout(function () {
-    $(function () {
-      $('.shade').fadeOut(2000);
+  $scope.payment = {};
+  $scope.payment.amount = 23;
+
+  $scope.charge = function () {
+    return stripe.card.createToken($scope.payment.card).then(function (response) {
+      console.log('token created for card ending in ', response.card.last4);
+      var payment = angular.copy($scope.payment);
+      payment.card = void 0;
+      payment.token = response.id;
+      return $http.post('/api/payment', payment);
+    }).then(function (payment) {
+      console.log('successfully submitted payment for $', payment.amount);
+    }).catch(function (err) {
+      if (err.type && /^Stripe/.test(err.type)) {
+        console.log('Stripe error: ', err.message);
+      } else {
+        console.log('Other error occurred, possibly with your API', err.message);
+      }
     });
-  }, 1000);
+  };
 });
 'use strict';
 
@@ -546,10 +574,29 @@ $(window).scroll(function () {
 });
 'use strict';
 
+angular.module('fifty-three').controller('paperCtrl', function ($scope, $timeout) {
+
+  $timeout(function () {
+    $(function () {
+      $('.shade').fadeOut(2000);
+    });
+  }, 1000);
+});
+'use strict';
+
 angular.module('fifty-three').controller('shopCtrl', function ($scope, shopService) {});
 'use strict';
 
 angular.module('fifty-three').service('shopService', function ($http, $q) {});
+'use strict';
+
+angular.module('fifty-three').directive('footerDir', function () {
+  return {
+    restrict: 'AE',
+    templateUrl: './app/directives/footerDir/footerDir.html',
+    controller: function controller($scope) {}
+  };
+});
 'use strict';
 
 angular.module('fifty-three').directive('carouselDir', function () {
@@ -764,15 +811,6 @@ angular.module('fifty-three').service('carouselDirService', function ($http, $q)
   };
 
   //==END=====
-});
-'use strict';
-
-angular.module('fifty-three').directive('footerDir', function () {
-  return {
-    restrict: 'AE',
-    templateUrl: './app/directives/footerDir/footerDir.html',
-    controller: function controller($scope) {}
-  };
 });
 'use strict';
 
