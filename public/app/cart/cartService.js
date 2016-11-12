@@ -20,7 +20,9 @@ this.placeOrder = (user_id, order_id) => {
     method: 'PUT',
     url: '/api/order/complete/' + order_id + '/' + user_id
   })
-}
+};
+
+
 
  //===END SERVICE=======
 })

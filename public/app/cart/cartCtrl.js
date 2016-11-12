@@ -1,5 +1,5 @@
 angular.module('fifty-three')
-.controller('cartCtrl', ($scope, cartService, $stateParams, authService, $timeout, $state) => {
+.controller('cartCtrl', ($scope, cartService, $stateParams, authService, $timeout, $state, stripe, $http) => {
 
 $scope.something = cartService.something;
 
@@ -71,6 +71,58 @@ $scope.placeOrder = (user_id, order_id) => {
   })
 }
 
+//==========STRIPE==================
+  $scope.passValues = (userId, orderId, schmotal) => {
+    $scope.stripeUserId = userId;
+    $scope.stripeOrderId = orderId;
+    $scope.stripeTotal = schmotal;
+  }
+
+
+  $scope.payment = {};
+  $scope.payment.amount = 23;
+
+  $scope.charge = function () {
+    return stripe.card.createToken($scope.payment.card)
+    .then(function (response) {
+      console.log('token created for card ending in ', response.card.last4);
+      var payment = angular.copy($scope.payment);
+      payment.card = void 0;
+      payment.token = response.id;
+      console.log("schmotal from controller: ");
+      console.log($scope.stripeTotal);
+      // return $http.post('/api/payment', payment);
+      return $http({
+        method: 'POST',
+        url: '/api/payment',
+        data: {
+          amount: $scope.stripeTotal,
+          payment: payment
+        }
+      })
+    })
+    .then(function(payment) {
+      console.log('successfully submitted payment for $', payment);
+      swal({
+        title: "Thank You!",
+        text: "Your order will be shipped within 3 business days.",
+        imageUrl: "https://cdn.shopify.com/s/files/1/0245/8513/t/7/assets/53-dark.svg?1246397996584665470",
+        timer: 4000,
+        showConfirmButton: false
+      })
+      cartService.placeOrder($scope.stripeUserId, $scope.stripeOrderId).then((response) => {
+        $state.go('pencil');
+      })
+    })
+    .catch(function (err) {
+       if (err.type && /^Stripe/.test(err.type)) {
+         console.log('Stripe error: ', err.message);
+       }
+       else {
+         console.log('Other error occurred, possibly with your API', err.message);
+       }
+     });
+ };
 
 //===JQUERY==============
 // $(() => {
@@ -85,6 +137,31 @@ $scope.placeOrder = (user_id, order_id) => {
 //     })
 //   });
 // })
+
+$(() => {
+  $('.checkout-btn').on('click', () => {
+    $('.slide-in-wrapper').css({
+      "width": "400px"
+    });
+
+    $('.slide-in-fade').fadeIn();
+
+  })
+
+  $('.slide-in-wrapper').on('click', () => {
+    $('.slide-in-wrapper').css({
+      "width": "00px"
+    });
+
+    $('.slide-in-fade').fadeOut();
+  
+
+  })
+
+
+
+
+})
 
 
 

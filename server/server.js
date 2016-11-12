@@ -84,41 +84,77 @@ app.delete('/api/delete/item/cart/:itemid', productsCtrl.deleteCartItem);
 
 
 //STRIPE ENDPOINTS
-app.post('/charge', (req, res) => {
-
-  var stripeToken = req.body;
-  console.log('here is the stripe token: ');
-  console.log(stripeToken);
-  var amount = 100;
-
-  stripe.charges.create({
-    currency: 'usd',
-    source: {
-      number: '4242424242424242',
-      cvc: '111',
-      exp_month: 12,
-      exp_year:2017
-    },
-    amount: amount
-  },
-  function(err, charge) {
-    if (err) {
-      res.status(500).send( err);
-    } else {
-      res.status(204).send();
-    }
-  });
-});
+// app.post('/charge', (req, res) => {
+//
+//   var stripeToken = req.body.payment;
+//   console.log('here is the stripe token: ');
+//   console.log(stripeToken);
+//   const amount = req.body.amount;
+//   //convert amount to pennies
+//   const chargeAmt = amount;
+//   const amountArray = chargeAmt.toString().split('');
+//   for (var i = 0; i < amountArray.length; i++) {
+//   	if(amountArray[i] === ".") {
+//   		amountArray.splice(i, 1);
+//   	}
+//   }
+//   const pennies = parseInt(amountArray.join(''));
+//
+//
+//   stripe.charges.create({
+//     currency: 'usd',
+//     source: {
+//       number: '4242424242424242',
+//       cvc: '111',
+//       exp_month: 12,
+//       exp_year:2017
+//     },
+//     amount: pennies
+//   },
+//   function(err, charge) {
+//     if (err) {
+//       res.status(500).send( err);
+//     } else {
+//       res.status(204).send();
+//     }
+//   });
+// });
 
 
 // payment
 app.post('/api/payment', function(req, res, next){
   console.log(req.body);
+
+  //convert amount to pennies
+  var chargeAmt = req.body.amount;
+  var amountArray = chargeAmt.toString().split('');
+  var pennies = [];
+  for (var i = 0; i < amountArray.length; i++) {
+    if(amountArray[i] === ".") {
+      if (typeof amountArray[i + 1] === "string") {
+        pennies.push(amountArray[i + 1]);
+      } else {
+        pennies.push("0");
+      }
+      if (typeof amountArray[i + 2] === "string") {
+        pennies.push(amountArray[i + 2]);
+      } else {
+        pennies.push("0");
+      }
+    	break;
+    } else {
+    	pennies.push(amountArray[i])
+    }
+  }
+  const convertedAmt = parseInt(pennies.join(''));
+  console.log("Pennies: ");
+  console.log(convertedAmt);
+
   var charge = stripe.charges.create({
-  amount: 1000, // amount in cents, again
+  amount: convertedAmt, // amount in cents, again
   currency: 'usd',
-  source: req.body.token,
-  description: 'Example charge 53'
+  source: req.body.payment.token,
+  description: 'Test charge for FiftyThree.com'
 }, function(err, charge) {
      res.sendStatus(200);
   // if (err && err.type === 'StripeCardError') {

@@ -32,9 +32,12 @@
       </div>
       <hr>
     </div>
-    <div class="total-wrap">
-      <div class="total">Total:</div>
-      <div class="total-num">{{schmotal | currency}}</div>
+    <div class="total-checkout-wrap">
+      <div class="total-wrap">
+        <div class="total">Total:</div>
+        <div class="total-num">{{schmotal | currency}}</div>
+      </div>
+      <div class="checkout-btn">Checkout</div>
     </div>
     <!-- <div class="checkout-wrap">
       <div class="shipping-wrap">
@@ -47,9 +50,14 @@
       </div>
     </div> -->
   </section>
-  <button ng-click='placeOrder(userCart.order.user_id, userCart.order.id)' type="button" style="position: fixed; bottom: 20px; right: 100px">Place Order</button>
+
+  <!-- <button ng-click='placeOrder(userCart.order.user_id, userCart.order.id)' type="button" style="position: fixed; bottom: 20px; right: 100px">Place Order</button> -->
 </main>
 
+<section class="slide-in-wrapper" ng-controller='cartCtrl'>
+
+</section>
+<section class="slide-in-fade"></section>
 <!-- <section class="add-extras-wrapper">
   <div class="add-extras">Add Extras</div>
   <div class="replacement-wrapper">
@@ -63,9 +71,9 @@
 
 <!-- PLACE ORDER POP OUT -->
 
-<section class="place-order-wrap">
+<!-- <section class="place-order-wrap">
   <div class="text"></div>
-</section>
+</section> -->
 
 
 
@@ -73,7 +81,7 @@
 
 
 //stripe
-<section ng-controller='paymentCtrl'>
+<section ng-controller='cartCtrl'>
   <form id="payment-form" ng-submit="charge(payment)">
     <span class="payment-errors"></span>
       <section class="checkout-header">
@@ -108,7 +116,7 @@
     </section>
 
         <div class="checkout-payment">
-          <input type="submit" class="submit" value="Submit Payment">
+          <input type="submit" class="submit" value="Submit Payment" ng-click='passValues(userCart.order.user_id, userCart.order.id, schmotal)'>
         </div>
       </section>
 
