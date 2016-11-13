@@ -240,9 +240,13 @@ $(() => {
   })
 //confirm slide in
 
-  $('#back').on('click', () => {
+  $('.back-confirm').on('click', () => {
     $('.slide-in-confirm').css({
       "width": "0px"
+    });
+    $('.text333').fadeOut(1000);
+    $('.bub333').css({
+      "background": "#FFFCF5"
     })
   })
 

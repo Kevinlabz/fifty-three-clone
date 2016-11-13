@@ -315,9 +315,13 @@ angular.module('fifty-three').controller('cartCtrl', function ($scope, cartServi
     });
     //confirm slide in
 
-    $('#back').on('click', function () {
+    $('.back-confirm').on('click', function () {
       $('.slide-in-confirm').css({
         "width": "0px"
+      });
+      $('.text333').fadeOut(1000);
+      $('.bub333').css({
+        "background": "#FFFCF5"
       });
     });
   });

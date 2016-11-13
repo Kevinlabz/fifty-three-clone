@@ -681,7 +681,7 @@
     font-family: "Roboto", sans-serif;
     position: absolute;
     bottom: 15px; }
-    .slide-in-confirm .back-container .back {
+    .slide-in-confirm .back-container .back-confirm {
       width: 125px;
       background: #FFFCF5;
       border: solid 1px;
