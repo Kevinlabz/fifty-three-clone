@@ -86,7 +86,7 @@ angular.module('fifty-three').service('stripeService', function ($http) {
 });
 'use strict';
 
-angular.module('fifty-three').controller('cartCtrl', function ($scope, cartService, $stateParams, authService, $timeout, $state, stripe, $http) {
+angular.module('fifty-three').controller('cartCtrl', function ($scope, cartService, $stateParams, authService, $timeout, $state, stripe, $http, $interval) {
 
   $scope.something = cartService.something;
 
@@ -202,6 +202,18 @@ angular.module('fifty-three').controller('cartCtrl', function ($scope, cartServi
     });
   };
 
+  $scope.makeCust = function (firstName, lastName, street, apt, city, state, zip) {
+    $scope.cust = {
+      firstName: firstName,
+      lastName: lastName,
+      street: street,
+      apt: apt,
+      city: city,
+      state: state,
+      zip: zip
+    };
+  };
+
   //===JQUERY==============
   // $(() => {
   //   $('.place-order-wrap').mouseover(() => {
@@ -217,20 +229,86 @@ angular.module('fifty-three').controller('cartCtrl', function ($scope, cartServi
   // })
 
   $(function () {
+    //checkout button
     $('.checkout-btn').on('click', function () {
-      $('.slide-in-wrapper').css({
+      $('.slide-in-review').css({
         "width": "400px"
       });
-
+      //review slide in
       $('.slide-in-fade').fadeIn();
+      $('.bub1').css({
+        "background": '#EB5E28'
+      });
+      $('.text1').delay(500).fadeIn(2000);
     });
 
-    $('.slide-in-wrapper').on('click', function () {
-      $('.slide-in-wrapper').css({
-        "width": "00px"
+    $('.edit').on('click', function () {
+      $('.slide-in-review').css({
+        "width": "0px"
       });
-
       $('.slide-in-fade').fadeOut();
+      $('.bub1').css({
+        "background": '#FFFCF5'
+      });
+      $('.text1').fadeOut(1000);
+    });
+
+    $('.proceed').on('click', function () {
+      $('.slide-in-info').css({
+        "width": "400px"
+      });
+    });
+
+    $('.slide-in-fade').on('click', function () {
+      $('.slide-in-review, .slide-in-info, .slide-in-confirm').css({
+        "width": "0px"
+      });
+      $('.slide-in-fade').fadeOut();
+      $('.bub1').css({
+        "background": '#FFFCF5'
+      });
+      $('.text1').fadeOut(1000);
+    });
+
+    $('.proceed').on('click', function () {
+      $('.slide-in-info').css({
+        "width": "400px"
+      });
+      $('.bub22').css({
+        'background': '#EB5E28'
+      });
+      $('.text22').delay(500).fadeIn(2000);
+    });
+    //info slide in
+    $('.sq').on('click', function () {
+      $('.slide-in-info').css({
+        'width': "400px"
+      });
+    });
+    $('.back').on('click', function () {
+      $('.slide-in-info').css({
+        "width": "0px"
+      });
+      $('.text22').fadeOut(1000);
+      $('.bub22').css({
+        "background": "#FFFCF5"
+      });
+    });
+    $('.confirm').on('click', function () {
+      $('.slide-in-confirm').css({
+        "width": "400px"
+      });
+      $('.bub333').css({
+        "background": "#EB5E28"
+      });
+      $('.text333').delay(500).fadeIn(2000);
+    });
+    //confirm slide in
+
+    $('.sq2').on('click', function () {
+      $('.slide-in-confirm').css({
+        "width": "400px"
+      });
     });
   });
 
@@ -298,16 +376,6 @@ angular.module('fifty-three').controller('paymentCtrl', function ($scope, $state
   //     });
   // };
 
-});
-'use strict';
-
-angular.module('fifty-three').controller('paperCtrl', function ($scope, $timeout) {
-
-  $timeout(function () {
-    $(function () {
-      $('.shade').fadeOut(2000);
-    });
-  }, 1000);
 });
 'use strict';
 
@@ -660,10 +728,29 @@ $(window).scroll(function () {
 });
 'use strict';
 
+angular.module('fifty-three').controller('paperCtrl', function ($scope, $timeout) {
+
+  $timeout(function () {
+    $(function () {
+      $('.shade').fadeOut(2000);
+    });
+  }, 1000);
+});
+'use strict';
+
 angular.module('fifty-three').controller('shopCtrl', function ($scope, shopService) {});
 'use strict';
 
 angular.module('fifty-three').service('shopService', function ($http, $q) {});
+'use strict';
+
+angular.module('fifty-three').directive('footerDir', function () {
+  return {
+    restrict: 'AE',
+    templateUrl: './app/directives/footerDir/footerDir.html',
+    controller: function controller($scope) {}
+  };
+});
 'use strict';
 
 angular.module('fifty-three').directive('carouselDir', function () {
@@ -878,15 +965,6 @@ angular.module('fifty-three').service('carouselDirService', function ($http, $q)
   };
 
   //==END=====
-});
-'use strict';
-
-angular.module('fifty-three').directive('footerDir', function () {
-  return {
-    restrict: 'AE',
-    templateUrl: './app/directives/footerDir/footerDir.html',
-    controller: function controller($scope) {}
-  };
 });
 'use strict';
 

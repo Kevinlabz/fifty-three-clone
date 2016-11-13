@@ -1,5 +1,6 @@
 <nav-dir></nav-dir>
-<main class="cart-outer-wrapper" ng-controller='cartCtrl'>
+<section ng-controller='cartCtrl'>
+<main class="cart-outer-wrapper">
   <p style="width: 100px; z-index: 2">
     <!-- {{userCart}} -->
   </p>
@@ -54,10 +55,180 @@
   <!-- <button ng-click='placeOrder(userCart.order.user_id, userCart.order.id)' type="button" style="position: fixed; bottom: 20px; right: 100px">Place Order</button> -->
 </main>
 
-<section class="slide-in-wrapper" ng-controller='cartCtrl'>
 
+
+<!-- //checkout slide -->
+<!-- REVIEW -->
+<section class="slide-in-review">
+  <div class="icon-wrap">
+    <div class="icon"></div>
+  </div>
+  <hr>
+  <div class="hr-wrap">
+    <div class="review-bubble">
+      <div class="bub1"></div>
+      <div class="text1">Review</div>
+    </div>
+    <div class="info-bubble">
+      <div class="bub2"></div>
+      <div class="text2">Shipping</div>
+    </div>
+    <div class="confirm-bubble">
+      <div class="bub3"></div>
+      <div class="text3">Confirm</div>
+    </div>
+  </div>
+  <div class="review-your-cart">Your cart</div>
+  <div class="cart-wrap">
+    <div class="cart" ng-repeat='item in userCart.products track by $index'>
+      <div class="name">{{item.name}}</div>
+      <div class="description">{{item.prod_desc}}</div>
+      <div class="qty">qty: {{item.qty}}</div>
+      <div class="price">{{item.price}}</div>
+      <!-- <div class="item-total">total: {{item.qty * item.price}}</div> -->
+    </div>
+  </div>
+  <div class="tot-wrap">
+    <div class="tot">Total:</div>
+    <div class="review-total">{{schmotal | currency}}</div>
+  </div>
+  <div class='edit-wrap'>
+    <div class="edit">Edit cart</div>
+    <div class="proceed">Shipping</div>
+  </div>
 </section>
+<!-- INFO -->
+<section class="slide-in-info" >
+  <div class="icon-wrap">
+    <div class="icon"></div>
+  </div>
+  <hr>
+  <div class="hr-wrap">
+    <div class="review-bubble">
+      <div class="bub11"></div>
+      <div class="text11">Review</div>
+    </div>
+    <div class="info-bubble">
+      <div class="bub22"></div>
+      <div class="text22">Shipping</div>
+    </div>
+    <div class="confirm-bubble">
+      <div class="bub33"></div>
+      <div class="text33">Confirm</div>
+    </div>
+  </div>
+  <div class="shipping-address">Shipping address</div>
+  <div class="address-wrap">
+    <div class="name">Name:</div>
+    <div class="name-input-wrap">
+      <input ng-model="firstName" class='first-name' type="text" name="name" placeholder="first name">
+      <input ng-model="lastName" class='last-name' type="text" name="" placeholder="last name">
+    </div>
+    <div class="add-wrap">
+      <div class="add-inner">
+        <div class="address">Address:</div>
+        <input ng-model="street" class='add-input' type="text" name="name" placeholder="street address" required>
+      </div>
+      <div class="apt-inner">
+        <div class="apt">Apt:</div>
+        <input ng-model="apt" class='apt-input' type="text" name="name" placeholder="apt #">
+      </div>
+    </div>
+    <div class="city-outer-wrap">
+      <div class="city-wrap">
+        <div class="city">City:</div>
+        <input ng-model="city" class='city-input' type="text" name="name" placeholder="city" required>
+      </div>
+      <div class="state-wrap">
+        <div class="state">State:</div>
+        <input ng-model='state' class="state-input" type="text" name="name" placeholder="state" required>
+      </div>
+      <div class="zip-wrap">
+        <div class="zip">Zip code:</div>
+        <input ng-model='zip' class='zip-input' type="text" name="name" placeholder="zip code" required>
+      </div>
+    </div>
+  </div>
+  <div class='back-wrap'>
+    <div class="back">Back</div>
+    <div class="confirm" ng-click='makeCust(firstName, lastName, street, apt, city, state, zip)'>Proceed</div>
+  </div>
+</section>
+<!-- CONFIRM -->
+<section class="slide-in-confirm">
+  <div class="icon-wrap">
+    <div class="icon"></div>
+  </div>
+  <hr>
+  <div class="hr-wrap">
+    <div class="review-bubble">
+      <div class="bub111"></div>
+      <div class="text111">Review</div>
+    </div>
+    <div class="info-bubble">
+      <div class="bub222"></div>
+      <div class="text222">Shipping</div>
+    </div>
+    <div class="confirm-bubble">
+      <div class="bub333"></div>
+      <div class="text333">Confirm</div>
+    </div>
+  </div>
+  <div class="ship-to-wrap">
+      <div class="ship-to">Ship to:</div>
+      <div class="cust-info-cont">
+      <div class="names">
+        <div class="first">{{cust.firstName}}</div>
+        <div class="first">{{cust.lastName}}</div>
+      </div>
+      <div class="address">
+        <div class="add">{{cust.street}}</div>
+        <div class="apt">Apt</div>
+        <div class="apt-num">{{cust.apt}}</div>
+      </div>
+      <div class="city-wrap">
+        <div class="city">{{cust.city}},</div>
+        <div class="state">{{cust.state}}</div>
+        <div class="zip">{{cust.zip}}</div>
+      </div>
+    </div>
+  </div>
+  <form ng-submit='charge(payment)'>
+    <section class="credit-wrap">
+      <div class="card-name">Name on card:</div>
+      <input class='card-name-input' type="text" name="name" required>
+      <div class="card-num">Card number:</div>
+      <input ng-model="payment.card.number" class='card-num-input' type="text" required>
+      <div class="cvc-outer-wrap">
+        <div class="cvc-wrap">
+          <div class="cvc">CVC:</div>
+          <input ng-model="payment.card.cvc" class='cvc-input' type="text" required>
+        </div>
+        <div class="exp-mo-wrap">
+          <div class="exp-mo">Exp. Mo</div>
+          <input ng-model="payment.card.exp_month" class='exp-mo-input' type="text" name="name" placeholder="MM">
+        </div>
+        <div class="exp-year-wrap">
+          <div class="exp-year">Exp. Mo</div>
+          <input ng-model="payment.card.exp_year" class='exp-year-input' type="text" name="name" placeholder="YY">
+        </div>
+      </div>
+    </section>
+
+    <div class='back-container'>
+      <div class="back">Back</div>
+      <button type='sumbit' class="order" ng-click='passValues(userCart.order.user_id, userCart.order.id, schmotal)'>Confirm</button>
+    </div>
+  </form>
+</section>
+
 <section class="slide-in-fade"></section>
+
+
+
+
+
+
 <!-- <section class="add-extras-wrapper">
   <div class="add-extras">Add Extras</div>
   <div class="replacement-wrapper">
@@ -75,7 +246,9 @@
   <div class="text"></div>
 </section> -->
 
-
+<!-- allllllll -->
+</section>
+<!-- sladkfjads;lfj -->
 
 <footer-dir></footer-dir>
 
