@@ -90,9 +90,9 @@
       .cart-outer-wrapper .cart-wrapper .total-checkout-wrap .checkout-btn {
         color: #FFFCF5;
         font-size: 22px;
-        margin-right: 35px;
+        margin-right: 15px;
         margin-bottom: 100px;
-        margin-top: 50px;
+        margin-top: 0px;
         background: #EB5E28;
         border-radius: 100px;
         padding: 14px 32px 14px 32px;
@@ -189,7 +189,7 @@
   .slide-in-review .cart-wrap {
     width: 360px;
     height: 225px;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-bottom: 5px;
     margin-left: 20px;
     margin-right: 20px;
@@ -2083,7 +2083,7 @@
         .carousel-wrapper .carousel-bg-img .right-side-nav .right-nav-wrap .add-to-cart {
           background: #E55A26;
           color: rgba(255, 255, 255, 0.8);
-          margin: 0 0 10px 0;
+          margin: 20px 0 20px 0;
           width: 150px;
           display: flex;
           justify-content: center;

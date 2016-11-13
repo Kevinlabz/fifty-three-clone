@@ -192,6 +192,17 @@ $(() => {
       "background": '#FFFCF5'
     });
     $('.text1').fadeOut(1000);
+
+    $('.bub22').css({
+      "background": '#FFFCF5'
+    });
+    $('.text22').fadeOut(1000);
+
+    $('.bub333').css({
+      "background": '#FFFCF5'
+    });
+    $('.text333').fadeOut(1000);
+
   })
 
   $('.proceed').on('click', ()=> {
@@ -229,9 +240,9 @@ $(() => {
   })
 //confirm slide in
 
-  $('.sq2').on('click', ()=> {
+  $('#back').on('click', () => {
     $('.slide-in-confirm').css({
-      "width": "400px"
+      "width": "0px"
     })
   })
 

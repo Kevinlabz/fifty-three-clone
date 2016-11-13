@@ -121,9 +121,9 @@ $cart-font-color: #A49E93;
       .checkout-btn {
         color: $nav-color;
         font-size: 22px;
-        margin-right: 35px;
+        margin-right: 15px;
         margin-bottom: 100px;
-        margin-top: 50px;
+        margin-top: 0px;
         background: #EB5E28;
         border-radius: 100px;
         padding: 14px 32px 14px 32px;
@@ -238,7 +238,7 @@ $cart-font-color: #A49E93;
   .cart-wrap {
     width: 360px;
     height: 225px;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-bottom: 5px;
     margin-left: 20px;
     margin-right: 20px;

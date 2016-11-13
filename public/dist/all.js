@@ -268,6 +268,16 @@ angular.module('fifty-three').controller('cartCtrl', function ($scope, cartServi
         "background": '#FFFCF5'
       });
       $('.text1').fadeOut(1000);
+
+      $('.bub22').css({
+        "background": '#FFFCF5'
+      });
+      $('.text22').fadeOut(1000);
+
+      $('.bub333').css({
+        "background": '#FFFCF5'
+      });
+      $('.text333').fadeOut(1000);
     });
 
     $('.proceed').on('click', function () {
@@ -305,9 +315,9 @@ angular.module('fifty-three').controller('cartCtrl', function ($scope, cartServi
     });
     //confirm slide in
 
-    $('.sq2').on('click', function () {
+    $('#back').on('click', function () {
       $('.slide-in-confirm').css({
-        "width": "400px"
+        "width": "0px"
       });
     });
   });
@@ -376,6 +386,16 @@ angular.module('fifty-three').controller('paymentCtrl', function ($scope, $state
   //     });
   // };
 
+});
+'use strict';
+
+angular.module('fifty-three').controller('paperCtrl', function ($scope, $timeout) {
+
+  $timeout(function () {
+    $(function () {
+      $('.shade').fadeOut(2000);
+    });
+  }, 1000);
 });
 'use strict';
 
@@ -728,29 +748,10 @@ $(window).scroll(function () {
 });
 'use strict';
 
-angular.module('fifty-three').controller('paperCtrl', function ($scope, $timeout) {
-
-  $timeout(function () {
-    $(function () {
-      $('.shade').fadeOut(2000);
-    });
-  }, 1000);
-});
-'use strict';
-
 angular.module('fifty-three').controller('shopCtrl', function ($scope, shopService) {});
 'use strict';
 
 angular.module('fifty-three').service('shopService', function ($http, $q) {});
-'use strict';
-
-angular.module('fifty-three').directive('footerDir', function () {
-  return {
-    restrict: 'AE',
-    templateUrl: './app/directives/footerDir/footerDir.html',
-    controller: function controller($scope) {}
-  };
-});
 'use strict';
 
 angular.module('fifty-three').directive('carouselDir', function () {
@@ -965,6 +966,15 @@ angular.module('fifty-three').service('carouselDirService', function ($http, $q)
   };
 
   //==END=====
+});
+'use strict';
+
+angular.module('fifty-three').directive('footerDir', function () {
+  return {
+    restrict: 'AE',
+    templateUrl: './app/directives/footerDir/footerDir.html',
+    controller: function controller($scope) {}
+  };
 });
 'use strict';
 
