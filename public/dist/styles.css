@@ -364,6 +364,7 @@
       margin-bottom: 20px;
       display: flex; }
       .slide-in-info .address-wrap .name-input-wrap .first-name {
+        background: #FFFCF5;
         height: 30px;
         margin-right: 10px;
         font-size: 15px;
@@ -373,6 +374,7 @@
       .slide-in-info .address-wrap .name-input-wrap .first-name:focus {
         outline: none; }
       .slide-in-info .address-wrap .name-input-wrap .last-name {
+        background: #FFFCF5;
         height: 30px;
         font-size: 15px;
         border: solid 1px;
@@ -388,6 +390,7 @@
         .slide-in-info .address-wrap .add-wrap .add-inner .address {
           margin-top: 5px; }
         .slide-in-info .address-wrap .add-wrap .add-inner .add-input {
+          background: #FFFCF5;
           width: 290px;
           height: 30px;
           border: solid 1px;
@@ -404,6 +407,7 @@
         .slide-in-info .address-wrap .add-wrap .apt-inner .apt {
           margin-top: 5px; }
         .slide-in-info .address-wrap .add-wrap .apt-inner .apt-input {
+          background: #FFFCF5;
           width: 60px;
           height: 30px;
           border: solid 1px;
@@ -421,6 +425,7 @@
         display: flex;
         flex-direction: column; }
         .slide-in-info .address-wrap .city-outer-wrap .city-wrap .city-input {
+          background: #FFFCF5;
           width: 190px;
           height: 30px;
           font-size: 15px;
@@ -435,6 +440,7 @@
         display: flex;
         flex-direction: column; }
         .slide-in-info .address-wrap .city-outer-wrap .state-wrap .state-input {
+          background: #FFFCF5;
           width: 50px;
           height: 30px;
           font-size: 15px;
@@ -448,6 +454,7 @@
         display: flex;
         flex-direction: column; }
         .slide-in-info .address-wrap .city-outer-wrap .zip-wrap .zip-input {
+          background: #FFFCF5;
           width: 100px;
           height: 30px;
           font-size: 15px;
@@ -580,6 +587,7 @@
   .slide-in-confirm .ship-to-wrap {
     margin-top: 100px;
     margin-left: 20px;
+    margin-right: 20px;
     font-size: 18px;
     font-family: "Roboto", sans-serif;
     display: flex;
@@ -625,7 +633,10 @@
       border-radius: 3px;
       margin-bottom: 5px;
       border: solid 1px;
-      font-size: 15px; }
+      font-size: 15px;
+      background: #FFFCF5; }
+    .slide-in-confirm .credit-wrap .card-name-input:focus {
+      outline: none; }
     .slide-in-confirm .credit-wrap .card-num {
       margin-bottom: 2px; }
     .slide-in-confirm .credit-wrap .card-num-input {
@@ -635,7 +646,10 @@
       border-radius: 3px;
       margin-bottom: 5px;
       border: solid 1px;
-      font-size: 15px; }
+      font-size: 15px;
+      background: #FFFCF5; }
+    .slide-in-confirm .credit-wrap .card-num-input:focus {
+      outline: none; }
     .slide-in-confirm .credit-wrap .cvc-outer-wrap {
       display: flex;
       justify-content: space-between; }
@@ -649,7 +663,10 @@
           padding-left: 5px;
           border-radius: 3px;
           border: solid 1px;
-          font-size: 15px; }
+          font-size: 15px;
+          background: #FFFCF5; }
+        .slide-in-confirm .credit-wrap .cvc-outer-wrap .cvc-wrap .cvc-input:focus {
+          outline: none; }
       .slide-in-confirm .credit-wrap .cvc-outer-wrap .exp-mo-wrap {
         width: 80px; }
         .slide-in-confirm .credit-wrap .cvc-outer-wrap .exp-mo-wrap .exp-mo {
@@ -660,7 +677,10 @@
           padding-left: 5px;
           border-radius: 3px;
           border: solid 1px;
-          font-size: 15px; }
+          font-size: 15px;
+          background: #FFFCF5; }
+        .slide-in-confirm .credit-wrap .cvc-outer-wrap .exp-mo-wrap .exp-mo-input:focus {
+          outline: none; }
       .slide-in-confirm .credit-wrap .cvc-outer-wrap .exp-year-wrap {
         width: 80px; }
         .slide-in-confirm .credit-wrap .cvc-outer-wrap .exp-year-wrap .exp-year {
@@ -671,7 +691,10 @@
           padding-left: 5px;
           border-radius: 3px;
           border: solid 1px;
-          font-size: 15px; }
+          font-size: 15px;
+          background: #FFFCF5; }
+        .slide-in-confirm .credit-wrap .cvc-outer-wrap .exp-year-wrap .exp-year-input:focus {
+          outline: none; }
   .slide-in-confirm .back-container {
     width: 100%;
     display: flex;
@@ -692,7 +715,7 @@
       border-radius: 100px;
       padding: 10px 15px 10px 15px;
       cursor: pointer; }
-    .slide-in-confirm .back-container .back:hover {
+    .slide-in-confirm .back-container .back-confirm:hover {
       color: #FFFCF5;
       background: #66625B; }
     .slide-in-confirm .back-container .order {
@@ -711,6 +734,8 @@
     .slide-in-confirm .back-container .order:hover {
       color: #FFFCF5;
       background: #66625B; }
+    .slide-in-confirm .back-container .order:focus {
+      outline: 0; }
 
 .slide-in-fade {
   display: none;
@@ -2097,217 +2122,171 @@
           font-size: 15px;
           font-weight: lighter; }
 
-.dk-outer-wrapper {
-  width: 100%;
-  height: 100vh;
+.sign-in-bg {
+  display: none;
   position: fixed;
   top: 0px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.8);
-  font-family: "Roboto", sans-serif; }
-  .dk-outer-wrapper .dk-container {
-    width: 300px;
-    height: 325px;
-    background: #66625B;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative; }
-    .dk-outer-wrapper .dk-container .dk-53 {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 70px; }
-    .dk-outer-wrapper .dk-container .dk-lock {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: 205px;
-      left: 18px; }
-    .dk-outer-wrapper .dk-container .dk-email-icon {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: 146px;
-      left: 18px; }
-    .dk-outer-wrapper .dk-container .dk-sign-in-up-wrap {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      height: 50px;
-      color: #66625B;
-      background: white;
-      border-radius: 15px 15px 0 0; }
-      .dk-outer-wrapper .dk-container .dk-sign-in-up-wrap .dk-sign-in {
-        text-align: center;
-        width: 50%;
-        font-size: 25px;
-        border-right: solid 1px;
-        cursor: pointer; }
-      .dk-outer-wrapper .dk-container .dk-sign-in-up-wrap .dk-sign-up {
-        text-align: center;
-        width: 50%;
-        font-size: 25px;
-        cursor: pointer; }
-    .dk-outer-wrapper .dk-container form {
-      display: flex;
-      flex-direction: column;
-      align-items: center; }
-      .dk-outer-wrapper .dk-container form .dk-email {
-        width: 275px;
-        height: 40px;
-        margin-top: 90px;
-        background: white;
-        color: #66625B;
-        font-size: 20px;
-        border-radius: 5px;
-        padding-left: 40px; }
-      .dk-outer-wrapper .dk-container form .dk-email:focus {
-        outline: none; }
-      .dk-outer-wrapper .dk-container form .dk-password {
-        width: 275px;
-        height: 40px;
-        margin-top: 20px;
-        background-color: white;
-        color: #66625B;
-        font-size: 20px;
-        border-radius: 5px;
-        padding-left: 40px; }
-      .dk-outer-wrapper .dk-container form .dk-password:focus {
-        outline: none; }
-    .dk-outer-wrapper .dk-container .dk-sign-in-btn {
-      width: 300px;
-      height: 50px;
-      background: white;
-      color: #66625B;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 0 0 15px 15px;
-      position: absolute;
-      bottom: 0px;
-      font-size: 25px;
-      border: none;
-      cursor: pointer; }
-    .dk-outer-wrapper .dk-container .dk-sign-in-btn:focus {
-      outline: none; }
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1; }
 
-.kd-outer-wrapper {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0px;
-  display: none;
-  justify-content: center;
+.sign-in-outer-wrap {
+  width: 300px;
+  height: 400px;
+  display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.8);
-  font-family: "Roboto", sans-serif; }
-  .kd-outer-wrapper .kd-container {
+  flex-direction: column;
+  z-index: 2;
+  position: fixed;
+  top: 100px;
+  left: -450px;
+  font-family: "Roboto", sans-serif;
+  transition: .9s; }
+  .sign-in-outer-wrap form {
     width: 300px;
-    height: 325px;
-    background: #66625B;
-    border-radius: 15px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative; }
-    .kd-outer-wrapper .kd-container .kd-53 {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 61px; }
-    .kd-outer-wrapper .kd-container .kd-user-icon {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: 126px;
-      left: 18px; }
-    .kd-outer-wrapper .kd-container .kd-lock {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: 229px;
-      left: 18px; }
-    .kd-outer-wrapper .kd-container .kd-email-icon {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: 178px;
-      left: 18px; }
-    .kd-outer-wrapper .kd-container .kd-sign-in-up-wrap {
-      display: flex;
-      align-items: center;
+    align-items: center; }
+    .sign-in-outer-wrap form .logo {
+      background: url("./../../images/53-light.svg") no-repeat center;
+      background-size: contain;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 50px; }
+    .sign-in-outer-wrap form .email-input {
+      background: #FFFCF5;
+      border: solid 1px #66625B;
       width: 100%;
-      height: 50px;
-      color: #66625B;
-      background: white;
-      border-radius: 15px 15px 0 0; }
-      .kd-outer-wrapper .kd-container .kd-sign-in-up-wrap .kd-sign-in {
-        text-align: center;
-        width: 50%;
-        font-size: 25px;
-        border-right: solid 1px;
-        cursor: pointer; }
-      .kd-outer-wrapper .kd-container .kd-sign-in-up-wrap .kd-sign-up {
-        text-align: center;
-        width: 50%;
-        font-size: 25px;
-        cursor: pointer; }
-    .kd-outer-wrapper .kd-container form {
-      display: flex;
-      flex-direction: column;
-      align-items: center; }
-      .kd-outer-wrapper .kd-container form .kd-name {
-        width: 275px;
-        height: 40px;
-        margin-top: 70px;
-        background: white;
-        color: #66625B;
-        font-size: 20px;
-        border-radius: 5px;
-        padding-left: 45px; }
-      .kd-outer-wrapper .kd-container form .kd-name:focus {
-        outline: none; }
-      .kd-outer-wrapper .kd-container form .kd-email {
-        width: 275px;
-        height: 40px;
-        margin-top: 12px;
-        background: white;
-        color: #66625B;
-        font-size: 20px;
-        border-radius: 5px;
-        padding-left: 45px; }
-      .kd-outer-wrapper .kd-container form .kd-email:focus {
-        outline: none; }
-      .kd-outer-wrapper .kd-container form .kd-password {
-        width: 275px;
-        height: 40px;
-        margin-top: 12px;
-        background-color: white;
-        color: #66625B;
-        font-size: 20px;
-        border-radius: 5px;
-        padding-left: 45px; }
-      .kd-outer-wrapper .kd-container form .kd-password:focus {
-        outline: none; }
-      .kd-outer-wrapper .kd-container form .kd-sign-in-btn {
-        width: 300px;
-        height: 50px;
-        background: white;
-        color: #66625B;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0 0 15px 15px;
-        position: absolute;
-        bottom: 0px;
-        font-size: 25px;
-        cursor: pointer; }
-      .kd-outer-wrapper .kd-container form .kd-sign-in-btn:focus {
-        outline: none; }
+      height: 45px;
+      border-radius: 5px 5px 0 0;
+      padding: 5px;
+      font-size: 18px; }
+    .sign-in-outer-wrap form .email-input:focus {
+      outline: none; }
+    .sign-in-outer-wrap form .password-input {
+      background: #FFFCF5;
+      border: solid 1px #66625B;
+      width: 100%;
+      height: 45px;
+      border-radius: 0 0 5px 5px;
+      margin-top: -1px;
+      padding: 5px;
+      font-size: 18px;
+      margin-bottom: 25px; }
+    .sign-in-outer-wrap form .password-input:focus {
+      outline: none; }
+    .sign-in-outer-wrap form .sign-in {
+      background: #E55A26;
+      width: 100%;
+      height: 45px;
+      border: none;
+      transition: .5s;
+      color: #FFFCF5;
+      border-radius: 5px;
+      font-size: 22px;
+      font-weight: lighter;
+      margin-bottom: 15px;
+      cursor: pointer; }
+    .sign-in-outer-wrap form .sign-in:focus {
+      outline: 0; }
+  .sign-in-outer-wrap .sign-up {
+    background: #E55A26;
+    width: 100%;
+    height: 45px;
+    border: none;
+    transition: .5s;
+    color: #FFFCF5;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: lighter;
+    cursor: pointer; }
+  .sign-in-outer-wrap .sign-up:focus {
+    outline: 0; }
+
+.sign-up-outer-wrap {
+  width: 300px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  position: fixed;
+  top: 100px;
+  right: -450px;
+  font-family: "Roboto", sans-serif;
+  transition: .9s; }
+  .sign-up-outer-wrap form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .sign-up-outer-wrap form .logo {
+      background: url("./../../images/53-light.svg") no-repeat center;
+      background-size: contain;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 30px; }
+    .sign-up-outer-wrap form .name-input {
+      background: #FFFCF5;
+      border: solid 1px #66625B;
+      width: 100%;
+      height: 45px;
+      border-radius: 5px 5px 0 0;
+      padding: 5px;
+      font-size: 18px;
+      margin-bottom: -1px; }
+    .sign-up-outer-wrap form .name-input:focus {
+      outline: none; }
+    .sign-up-outer-wrap form .email-input {
+      background: #FFFCF5;
+      border: solid 1px #66625B;
+      width: 100%;
+      height: 45px;
+      border-radius: 0px 0px 0 0;
+      padding: 5px;
+      font-size: 18px; }
+    .sign-up-outer-wrap form .email-input:focus {
+      outline: none; }
+    .sign-up-outer-wrap form .password-input {
+      background: #FFFCF5;
+      border: solid 1px #66625B;
+      width: 100%;
+      height: 45px;
+      border-radius: 0 0 5px 5px;
+      margin-top: -1px;
+      padding: 5px;
+      font-size: 18px;
+      margin-bottom: 25px; }
+    .sign-up-outer-wrap form .password-input:focus {
+      outline: none; }
+    .sign-up-outer-wrap form .sign-in {
+      background: #E55A26;
+      width: 100%;
+      height: 45px;
+      border: none;
+      transition: .5s;
+      color: #FFFCF5;
+      border-radius: 5px;
+      font-size: 22px;
+      font-weight: lighter;
+      margin-bottom: 15px;
+      cursor: pointer; }
+    .sign-up-outer-wrap form .sign-in:focus {
+      outline: 0; }
+  .sign-up-outer-wrap .return {
+    background: #E55A26;
+    width: 100%;
+    height: 45px;
+    border: none;
+    transition: .5s;
+    color: #FFFCF5;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: lighter;
+    cursor: pointer; }
+  .sign-up-outer-wrap .return:focus {
+    outline: 0; }
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:300");
 .outer-wrapper {

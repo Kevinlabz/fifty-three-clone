@@ -187,8 +187,7 @@ angular.module('fifty-three').controller('cartCtrl', function ($scope, cartServi
         title: "Thank You!",
         text: "Your order will be shipped within 3 business days.",
         imageUrl: "https://cdn.shopify.com/s/files/1/0245/8513/t/7/assets/53-dark.svg?1246397996584665470",
-        timer: 4000,
-        showConfirmButton: false
+        confirmButtonText: "Continue exporing FiftyThree"
       });
       cartService.placeOrder($scope.stripeUserId, $scope.stripeOrderId).then(function (response) {
         $state.go('pencil');
@@ -758,6 +757,15 @@ angular.module('fifty-three').controller('shopCtrl', function ($scope, shopServi
 angular.module('fifty-three').service('shopService', function ($http, $q) {});
 'use strict';
 
+angular.module('fifty-three').directive('footerDir', function () {
+  return {
+    restrict: 'AE',
+    templateUrl: './app/directives/footerDir/footerDir.html',
+    controller: function controller($scope) {}
+  };
+});
+'use strict';
+
 angular.module('fifty-three').directive('carouselDir', function () {
 
   return {
@@ -799,15 +807,23 @@ angular.module('fifty-three').directive('carouselDir', function () {
 
       $scope.addToCart = function (pencil) {
         if (!$scope.currentUser) {
+
           $(function () {
-            $('.dk-outer-wrapper').fadeIn(500);
-            $('.dk-outer-wrapper').css({
-              "display": "flex"
-            });
-            $('.modal-outer-wrapper').on('click', function () {
-              $('.modal-outer-wrapper').fadeOut(500);
+            $('.sign-in-bg').fadeIn(500);
+            $('.sign-in-outer-wrap').css({
+              "left": "40%"
             });
           });
+
+          // $(() => {
+          //   $('.dk-outer-wrapper').fadeIn(500);
+          //   $('.dk-outer-wrapper').css({
+          //     "display": "flex"
+          //   });
+          //   $('.modal-outer-wrapper').on('click', () => {
+          //     $('.modal-outer-wrapper').fadeOut(500);
+          //   })
+          // })
 
           return;
           // return $scope.hideModal = false;
@@ -919,6 +935,35 @@ angular.module('fifty-three').directive('carouselDir', function () {
           });
         });
       });
+
+      //updated modal
+      $(function () {
+        $('.sign-in-bg').on('click', function () {
+          $('.sign-in-bg').fadeOut(500);
+          $('.sign-in-outer-wrap').css({
+            "left": "-450px"
+          });
+          $('.sign-up-outer-wrap').css({
+            "right": "-450px"
+          });
+        });
+        $('.sign-up').on('click', function () {
+          $('.sign-in-outer-wrap').css({
+            "left": "-450px"
+          });
+          $('.sign-up-outer-wrap').css({
+            "right": "40%"
+          });
+        });
+        $('.return').on('click', function () {
+          $('.sign-up-outer-wrap').css({
+            "right": "-450px"
+          });
+          $('.sign-in-outer-wrap').css({
+            "left": "40%"
+          });
+        });
+      });
       //===END CONTROLLER==
     }
     //===END RETURN========
@@ -970,15 +1015,6 @@ angular.module('fifty-three').service('carouselDirService', function ($http, $q)
   };
 
   //==END=====
-});
-'use strict';
-
-angular.module('fifty-three').directive('footerDir', function () {
-  return {
-    restrict: 'AE',
-    templateUrl: './app/directives/footerDir/footerDir.html',
-    controller: function controller($scope) {}
-  };
 });
 'use strict';
 

@@ -107,8 +107,7 @@ $scope.placeOrder = (user_id, order_id) => {
         title: "Thank You!",
         text: "Your order will be shipped within 3 business days.",
         imageUrl: "https://cdn.shopify.com/s/files/1/0245/8513/t/7/assets/53-dark.svg?1246397996584665470",
-        timer: 4000,
-        showConfirmButton: false
+        confirmButtonText: "Continue exporing FiftyThree"
       })
       cartService.placeOrder($scope.stripeUserId, $scope.stripeOrderId).then((response) => {
         $state.go('pencil');

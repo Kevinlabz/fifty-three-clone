@@ -442,6 +442,7 @@ $cart-font-color: #A49E93;
       margin-bottom: 20px;
       display: flex;
       .first-name {
+        background: $nav-color;
         height: 30px;
         margin-right: 10px;
         font-size: 15px;
@@ -453,6 +454,7 @@ $cart-font-color: #A49E93;
         outline: none;
       }
       .last-name {
+        background: $nav-color;
         height: 30px;
         font-size: 15px;
         border: solid 1px;
@@ -472,6 +474,7 @@ $cart-font-color: #A49E93;
           margin-top: 5px;
         }
         .add-input {
+          background: $nav-color;
           width: 290px;
           height: 30px;
           border: solid 1px;
@@ -492,6 +495,7 @@ $cart-font-color: #A49E93;
           margin-top: 5px;
         }
         .apt-input {
+          background: $nav-color;
           width: 60px;
           height: 30px;
           border: solid 1px;
@@ -514,6 +518,7 @@ $cart-font-color: #A49E93;
         flex-direction: column;
         .city {}
         .city-input {
+          background: $nav-color;
           width: 190px;
           height: 30px;
           font-size: 15px;
@@ -532,6 +537,7 @@ $cart-font-color: #A49E93;
         flex-direction: column;
         .state {}
         .state-input {
+          background: $nav-color;
           width: 50px;
           height: 30px;
           font-size: 15px;
@@ -549,6 +555,7 @@ $cart-font-color: #A49E93;
         flex-direction: column;
         .zip {}
         .zip-input {
+          background: $nav-color;
           width: 100px;
           height: 30px;
           font-size: 15px;
@@ -704,6 +711,7 @@ $cart-font-color: #A49E93;
   .ship-to-wrap {
     margin-top: 100px;
     margin-left: 20px;
+    margin-right: 20px;
     font-size: 18px;
     font-family: $main-font;
     display: flex;
@@ -765,6 +773,10 @@ $cart-font-color: #A49E93;
       margin-bottom: 5px;
       border: solid 1px;
       font-size: 15px;
+      background: $nav-color;
+    }
+    .card-name-input:focus {
+      outline: none;
     }
     .card-num {
       margin-bottom: 2px;
@@ -777,6 +789,10 @@ $cart-font-color: #A49E93;
       margin-bottom: 5px;
       border: solid 1px;
       font-size: 15px;
+      background: $nav-color;
+    }
+    .card-num-input:focus {
+      outline: none;
     }
     .cvc-outer-wrap {
       display: flex;
@@ -793,6 +809,10 @@ $cart-font-color: #A49E93;
           border-radius: 3px;
           border: solid 1px;
           font-size: 15px;
+          background: $nav-color;
+        }
+        .cvc-input:focus {
+          outline: none;
         }
       }
       .exp-mo-wrap {
@@ -807,6 +827,10 @@ $cart-font-color: #A49E93;
           border-radius: 3px;
           border: solid 1px;
           font-size: 15px;
+          background: $nav-color;
+        }
+        .exp-mo-input:focus {
+          outline: none;
         }
       }
       .exp-year-wrap {
@@ -821,6 +845,10 @@ $cart-font-color: #A49E93;
           border-radius: 3px;
           border: solid 1px;
           font-size: 15px;
+          background: $nav-color;
+        }
+        .exp-year-input:focus {
+          outline: none;
         }
       }
     }
@@ -846,7 +874,7 @@ $cart-font-color: #A49E93;
       padding: 10px 15px 10px 15px;
       cursor: pointer;
     }
-    .back:hover {
+    .back-confirm:hover {
       color: $nav-color;
       background: $paper-text-color;
     }
@@ -867,6 +895,9 @@ $cart-font-color: #A49E93;
     .order:hover {
       color: $nav-color;
       background: $paper-text-color;
+    }
+    .order:focus {
+      outline: 0;
     }
   }
 

@@ -40,15 +40,25 @@ angular.module('fifty-three')
 
       $scope.addToCart = (pencil) => {
         if (!$scope.currentUser) {
+
           $(() => {
-            $('.dk-outer-wrapper').fadeIn(500);
-            $('.dk-outer-wrapper').css({
-              "display": "flex"
-            });
-            $('.modal-outer-wrapper').on('click', () => {
-              $('.modal-outer-wrapper').fadeOut(500);
+            $('.sign-in-bg').fadeIn(500);
+            $('.sign-in-outer-wrap').css({
+              "left": "40%"
             })
           })
+
+
+
+          // $(() => {
+          //   $('.dk-outer-wrapper').fadeIn(500);
+          //   $('.dk-outer-wrapper').css({
+          //     "display": "flex"
+          //   });
+          //   $('.modal-outer-wrapper').on('click', () => {
+          //     $('.modal-outer-wrapper').fadeOut(500);
+          //   })
+          // })
 
           return;
           // return $scope.hideModal = false;
@@ -163,6 +173,39 @@ angular.module('fifty-three')
               "display": "flex"
             });
           })
+        })
+
+        //updated modal
+        $(() => {
+          $('.sign-in-bg').on('click', ()=> {
+            $('.sign-in-bg').fadeOut(500);
+            $('.sign-in-outer-wrap').css({
+              "left": "-450px"
+            });
+            $('.sign-up-outer-wrap').css({
+              "right": "-450px"
+            })
+          })
+          $('.sign-up').on('click', ()=> {
+            $('.sign-in-outer-wrap').css({
+              "left": "-450px"
+            });
+            $('.sign-up-outer-wrap').css({
+              "right": "40%"
+            })
+          })
+          $('.return').on('click', ()=> {
+            $('.sign-up-outer-wrap').css({
+              "right": "-450px"
+            });
+            $('.sign-in-outer-wrap').css({
+              "left": "40%"
+            })
+          })
+
+
+
+
         })
     //===END CONTROLLER==
     }

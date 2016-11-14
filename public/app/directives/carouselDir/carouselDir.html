@@ -83,8 +83,40 @@
 </section> -->
 
 <!-- UPDATED MODAL -->
+
+<section class="sign-in-bg"></section>
+<section ng-click='$event.stopPropagation()' class="sign-in-outer-wrap">
+  <form ng-submit='login(user)'>
+    <div class="logo"></div>
+    <input ng-model='user.email' class='email-input' type="text" name="name" placeholder='email address' required>
+    <input ng-model='user.password' class='password-input' type="password" name="name" placeholder="password" required>
+    <button class='sign-in' type="submit" name="button">Sign in</button>
+  </form>
+    <button class='sign-up' name="button">Sign up</button>
+</section>
+
+<section ng-click='$event.stopPropagation()' class="sign-up-outer-wrap">
+  <form ng-submit='register(newUser)'>
+    <div class="logo"></div>
+    <input ng-model='newUser.name' class='name-input' type="text" name="name" placeholder="name" required>
+    <input ng-model='newUser.email' class='email-input' type="text" name="name" placeholder='email address' required>
+    <input ng-model='newUser.password' class='password-input' type="password" name="name" placeholder="password" required>
+    <button class='sign-in' type="submit" name="button">Sign up</button>
+  </form>
+    <button class='return' name="button">Return to sign in</button>
+</section>
+
+
+
+
+
+
+
+
+
+
 <!-- SIGN-IN MODAL -->
-<section class='dk-outer-wrapper'>
+<!-- <section class='dk-outer-wrapper'>
   <section class="dk-container">
     <img class='dk-53' src="./../images/53-light.svg" alt="" />
     <img class='dk-lock' src="./../images/rateLockGraphic.png" alt="" />
@@ -99,9 +131,9 @@
       <button type="submit" class="dk-sign-in-btn">Sign-in</button>
     </form>
   </section>
-</section>
+</section> -->
 <!-- SIGN-UP MODAL -->
-<section class='kd-outer-wrapper'>
+<!-- <section class='kd-outer-wrapper'>
   <section class="kd-container">
     <img class='kd-53' src="./../images/53-light.svg" alt="" />
     <img class='kd-user-icon' src="./../images/user-icon.png" alt="" />
@@ -118,4 +150,4 @@
       <button type='submit' class="kd-sign-in-btn">Sign-up</button>
     </form>
   </section>
-</section>
+</section> -->

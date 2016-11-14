@@ -3,6 +3,7 @@
 
 //===VARIABLES====================
 $main-font: 'Roboto', sans-serif;
+$nav-color: #FFFCF5;
 $nav-text-color: white;
 $this-color: #F1EAE0;
 $paper-text-color: #66625B;
@@ -229,246 +230,442 @@ $shipping-bg: #66615B;
 //     }
 //   }
 // }
-.dk-outer-wrapper {
-  width: 100%;
-  height: 100vh;
+// .dk-outer-wrapper {
+//   width: 100%;
+//   height: 100vh;
+//   position: fixed;
+//   top: 0px;
+//   display: none;
+//   justify-content: center;
+//   align-items: center;
+//   background: rgba(0,0,0,.8);
+//   font-family: $main-font;
+//   .dk-container {
+//     width: 300px;
+//     height: 325px;
+//     background: $paper-text-color;
+//     border-radius: 15px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     position: relative;
+//     .dk-53 {
+//       width: 50px;
+//       height: 50px;
+//       position: absolute;
+//       top: 70px;
+//     }
+//     .dk-lock {
+//       width: 30px;
+//       height: 30px;
+//       position: absolute;
+//       top: 205px;
+//       left: 18px;
+//     }
+//     .dk-email-icon {
+//       width: 30px;
+//       height: 30px;
+//       position: absolute;
+//       top: 146px;
+//       left: 18px;
+//     }
+//     .dk-sign-in-up-wrap {
+//       display: flex;
+//       align-items: center;
+//       width: 100%;
+//       height: 50px;
+//       color: $paper-text-color;
+//       background: $nav-text-color;
+//       border-radius: 15px 15px 0 0;
+//       .dk-sign-in {
+//         text-align: center;
+//         width: 50%;
+//         font-size: 25px;
+//         border-right: solid 1px;
+//         cursor: pointer;
+//       }
+//       .dk-sign-up {
+//         text-align: center;
+//         width: 50%;
+//         font-size: 25px;
+//         cursor: pointer;
+//       }
+//     }
+//     form {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       .dk-email {
+//         width: 275px;
+//         height: 40px;
+//         margin-top: 90px;
+//         background: $nav-text-color;
+//         color: $paper-text-color;
+//         font-size: 20px;
+//         border-radius: 5px;
+//         padding-left: 40px;
+//       }
+//       .dk-email:focus {
+//         outline: none;
+//       }
+//       .dk-password {
+//         width: 275px;
+//         height: 40px;
+//         margin-top: 20px;
+//         background-color: $nav-text-color;
+//         color: $paper-text-color;
+//         font-size: 20px;
+//         border-radius: 5px;
+//         padding-left: 40px;
+//       }
+//       .dk-password:focus {
+//         outline: none;
+//       }
+//     }
+//     .dk-sign-in-btn {
+//       width: 300px;
+//       height: 50px;
+//       background: $nav-color;
+//       color: $paper-text-color;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       border-radius: 0 0 15px 15px;
+//       position: absolute;
+//       bottom: 0px;
+//       font-size: 25px;
+//       border: none;
+//       cursor: pointer;
+//     }
+//     .dk-sign-in-btn:focus {
+//       outline: none;
+//     }
+//   }
+// }
+// .kd-outer-wrapper {
+//   width: 100%;
+//   height: 100vh;
+//   position: fixed;
+//   top: 0px;
+//   display: none;
+//   justify-content: center;
+//   align-items: center;
+//   background: rgba(0,0,0,.8);
+//   font-family: $main-font;
+//   .kd-container {
+//     width: 300px;
+//     height: 325px;
+//     background: $nav-color;
+//     border-radius: 15px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     position: relative;
+//     .kd-53 {
+//       width: 50px;
+//       height: 50px;
+//       position: absolute;
+//       top: 61px;
+//     }
+//     .kd-user-icon {
+//       width: 30px;
+//       height: 30px;
+//       position: absolute;
+//       top: 126px;
+//       left: 18px;
+//     }
+//     .kd-lock {
+//       width: 30px;
+//       height: 30px;
+//       position: absolute;
+//       top: 229px;
+//       left: 18px;
+//     }
+//     .kd-email-icon {
+//       width: 30px;
+//       height: 30px;
+//       position: absolute;
+//       top: 178px;
+//       left: 18px;
+//     }
+//     .kd-sign-in-up-wrap {
+//       display: flex;
+//       align-items: center;
+//       width: 100%;
+//       height: 50px;
+//       color: $paper-text-color;
+//       background: $nav-color;
+//       border-radius: 15px 15px 0 0;
+//       .kd-sign-in {
+//         text-align: center;
+//         width: 50%;
+//         font-size: 25px;
+//         border-right: solid 1px;
+//         cursor: pointer;
+//       }
+//       .kd-sign-up {
+//         text-align: center;
+//         width: 50%;
+//         font-size: 25px;
+//         cursor: pointer;
+//       }
+//     }
+//     form {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       .kd-name {
+//         width: 275px;
+//         height: 40px;
+//         margin-top: 70px;
+//         background: $nav-color;
+//         color: $paper-text-color;
+//         font-size: 20px;
+//         border-radius: 5px;
+//         padding-left: 45px;
+//       }
+//       .kd-name:focus {
+//         outline: none;
+//       }
+//       .kd-email {
+//         width: 275px;
+//         height: 40px;
+//         margin-top: 12px;
+//         background: $nav-color;
+//         color: $paper-text-color;
+//         font-size: 20px;
+//         border-radius: 5px;
+//         padding-left: 45px;
+//       }
+//       .kd-email:focus {
+//         outline: none;
+//       }
+//       .kd-password {
+//         width: 275px;
+//         height: 40px;
+//         margin-top: 12px;
+//         background-color: $nav-color;
+//         color: $paper-text-color;
+//         font-size: 20px;
+//         border-radius: 5px;
+//         padding-left: 45px;
+//       }
+//       .kd-password:focus {
+//         outline: none;
+//       }
+//       .kd-sign-in-btn {
+//         width: 300px;
+//         height: 50px;
+//         background: $nav-color;
+//         color: $paper-text-color;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         border-radius: 0 0 15px 15px;
+//         position: absolute;
+//         bottom: 0px;
+//         font-size: 25px;
+//         cursor: pointer;
+//       }
+//       .kd-sign-in-btn:focus {
+//         outline: none;
+//       }
+//     }
+//   }
+// }
+
+
+
+//updated modal
+.sign-in-bg {
+  display: none;
   position: fixed;
   top: 0px;
-  display: none;
-  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,.9);
+  z-index: 1;
+}
+.sign-in-outer-wrap {
+  width: 300px;
+  height: 400px;
+  // background: blue;
+  display: flex;
   align-items: center;
-  background: rgba(0,0,0,.8);
+  flex-direction: column;
+  z-index: 2;
+  position: fixed;
+  top: 100px;
+  left: -450px;
   font-family: $main-font;
-  .dk-container {
+  transition: .9s;
+  form {
     width: 300px;
-    height: 325px;
-    background: $paper-text-color;
-    border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    .dk-53 {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 70px;
+    .logo {
+      background: url('./../../images/53-light.svg') no-repeat center;
+      background-size: contain;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 50px;
     }
-    .dk-lock {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: 205px;
-      left: 18px;
-    }
-    .dk-email-icon {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: 146px;
-      left: 18px;
-    }
-    .dk-sign-in-up-wrap {
-      display: flex;
-      align-items: center;
+    .email-input {
+      background: $nav-color;
+      border: solid 1px $paper-text-color;
       width: 100%;
-      height: 50px;
-      color: $paper-text-color;
-      background: $nav-text-color;
-      border-radius: 15px 15px 0 0;
-      .dk-sign-in {
-        text-align: center;
-        width: 50%;
-        font-size: 25px;
-        border-right: solid 1px;
-        cursor: pointer;
-      }
-      .dk-sign-up {
-        text-align: center;
-        width: 50%;
-        font-size: 25px;
-        cursor: pointer;
-      }
+      height: 45px;
+      border-radius: 5px 5px 0 0;
+      padding: 5px;
+      font-size: 18px;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .dk-email {
-        width: 275px;
-        height: 40px;
-        margin-top: 90px;
-        background: $nav-text-color;
-        color: $paper-text-color;
-        font-size: 20px;
-        border-radius: 5px;
-        padding-left: 40px;
-      }
-      .dk-email:focus {
-        outline: none;
-      }
-      .dk-password {
-        width: 275px;
-        height: 40px;
-        margin-top: 20px;
-        background-color: $nav-text-color;
-        color: $paper-text-color;
-        font-size: 20px;
-        border-radius: 5px;
-        padding-left: 40px;
-      }
-      .dk-password:focus {
-        outline: none;
-      }
-    }
-    .dk-sign-in-btn {
-      width: 300px;
-      height: 50px;
-      background: $nav-text-color;
-      color: $paper-text-color;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 0 0 15px 15px;
-      position: absolute;
-      bottom: 0px;
-      font-size: 25px;
-      border: none;
-      cursor: pointer;
-    }
-    .dk-sign-in-btn:focus {
+    .email-input:focus {
       outline: none;
     }
+    .password-input {
+      background: $nav-color;
+      border: solid 1px $paper-text-color;
+      width: 100%;
+      height: 45px;
+      border-radius: 0 0 5px 5px;
+      margin-top: -1px;
+      padding: 5px;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+    .password-input:focus {
+      outline: none;
+    }
+    .sign-in {
+      background: #E55A26;
+      width: 100%;
+      height: 45px;
+      border: none;
+      transition: .5s;
+      color: $nav-color;
+      border-radius: 5px;
+      font-size: 22px;
+      font-weight: lighter;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+    .sign-in:focus {
+      outline: 0;
+    }
+  }
+
+  .sign-up {
+    background: #E55A26;
+    width: 100%;
+    height: 45px;
+    border: none;
+    transition: .5s;
+    color: $nav-color;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: lighter;
+    cursor: pointer;
+  }
+  .sign-up:focus {
+    outline: 0;
   }
 }
-.kd-outer-wrapper {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0px;
-  display: none;
-  justify-content: center;
+
+.sign-up-outer-wrap {
+  width: 300px;
+  height: 400px;
+  // background: blue;
+  display: flex;
   align-items: center;
-  background: rgba(0,0,0,.8);
+  flex-direction: column;
+  z-index: 2;
+  position: fixed;
+  top: 100px;
+  right: -450px;
   font-family: $main-font;
-  .kd-container {
+  transition: .9s;
+  form {
     width: 300px;
-    height: 325px;
-    background: $paper-text-color;
-    border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    .kd-53 {
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 61px;
+    .logo {
+      background: url('./../../images/53-light.svg') no-repeat center;
+      background-size: contain;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 30px;
     }
-    .kd-user-icon {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: 126px;
-      left: 18px;
-    }
-    .kd-lock {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: 229px;
-      left: 18px;
-    }
-    .kd-email-icon {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      top: 178px;
-      left: 18px;
-    }
-    .kd-sign-in-up-wrap {
-      display: flex;
-      align-items: center;
+    .name-input {
+      background: $nav-color;
+      border: solid 1px $paper-text-color;
       width: 100%;
-      height: 50px;
-      color: $paper-text-color;
-      background: $nav-text-color;
-      border-radius: 15px 15px 0 0;
-      .kd-sign-in {
-        text-align: center;
-        width: 50%;
-        font-size: 25px;
-        border-right: solid 1px;
-        cursor: pointer;
-      }
-      .kd-sign-up {
-        text-align: center;
-        width: 50%;
-        font-size: 25px;
-        cursor: pointer;
-      }
+      height: 45px;
+      border-radius: 5px 5px 0 0;
+      padding: 5px;
+      font-size: 18px;
+      margin-bottom: -1px;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .kd-name {
-        width: 275px;
-        height: 40px;
-        margin-top: 70px;
-        background: $nav-text-color;
-        color: $paper-text-color;
-        font-size: 20px;
-        border-radius: 5px;
-        padding-left: 45px;
-      }
-      .kd-name:focus {
-        outline: none;
-      }
-      .kd-email {
-        width: 275px;
-        height: 40px;
-        margin-top: 12px;
-        background: $nav-text-color;
-        color: $paper-text-color;
-        font-size: 20px;
-        border-radius: 5px;
-        padding-left: 45px;
-      }
-      .kd-email:focus {
-        outline: none;
-      }
-      .kd-password {
-        width: 275px;
-        height: 40px;
-        margin-top: 12px;
-        background-color: $nav-text-color;
-        color: $paper-text-color;
-        font-size: 20px;
-        border-radius: 5px;
-        padding-left: 45px;
-      }
-      .kd-password:focus {
-        outline: none;
-      }
-      .kd-sign-in-btn {
-        width: 300px;
-        height: 50px;
-        background: $nav-text-color;
-        color: $paper-text-color;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0 0 15px 15px;
-        position: absolute;
-        bottom: 0px;
-        font-size: 25px;
-        cursor: pointer;
-      }
-      .kd-sign-in-btn:focus {
-        outline: none;
-      }
+    .name-input:focus {
+      outline: none;
     }
+    .email-input {
+      background: $nav-color;
+      border: solid 1px $paper-text-color;
+      width: 100%;
+      height: 45px;
+      border-radius: 0px 0px 0 0;
+      padding: 5px;
+      font-size: 18px;
+    }
+    .email-input:focus {
+      outline: none;
+    }
+    .password-input {
+      background: $nav-color;
+      border: solid 1px $paper-text-color;
+      width: 100%;
+      height: 45px;
+      border-radius: 0 0 5px 5px;
+      margin-top: -1px;
+      padding: 5px;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+    .password-input:focus {
+      outline: none;
+    }
+    .sign-in {
+      background: #E55A26;
+      width: 100%;
+      height: 45px;
+      border: none;
+      transition: .5s;
+      color: $nav-color;
+      border-radius: 5px;
+      font-size: 22px;
+      font-weight: lighter;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+    .sign-in:focus {
+      outline: 0;
+    }
+  }  
+  .return {
+    background: #E55A26;
+    width: 100%;
+    height: 45px;
+    border: none;
+    transition: .5s;
+    color: $nav-color;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: lighter;
+    cursor: pointer;
+  }
+  .return:focus {
+    outline: 0;
   }
 }
