@@ -549,6 +549,10 @@ $shipping-bg: #66615B;
       font-weight: lighter;
       margin-bottom: 15px;
       cursor: pointer;
+      transition: .5s;
+    }
+    .sign-in:hover {
+      background: #B33C12;
     }
     .sign-in:focus {
       outline: 0;
@@ -566,6 +570,10 @@ $shipping-bg: #66615B;
     font-size: 22px;
     font-weight: lighter;
     cursor: pointer;
+    transition: .5s;
+  }
+  .sign-up:hover {
+    background: #B33C12;
   }
   .sign-up:focus {
     outline: 0;
@@ -648,11 +656,15 @@ $shipping-bg: #66615B;
       font-weight: lighter;
       margin-bottom: 15px;
       cursor: pointer;
+      transition: .5s;
+    }
+    .sign-in:hover {
+      background: #B33C12;
     }
     .sign-in:focus {
       outline: 0;
     }
-  }  
+  }
   .return {
     background: #E55A26;
     width: 100%;
@@ -664,6 +676,10 @@ $shipping-bg: #66615B;
     font-size: 22px;
     font-weight: lighter;
     cursor: pointer;
+    transition: .5s;
+  }
+  .return:hover {
+    background: #B33C12;
   }
   .return:focus {
     outline: 0;

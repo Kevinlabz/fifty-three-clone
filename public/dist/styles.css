@@ -196,6 +196,7 @@
     margin-top: 5px;
     background: #FFFCF5;
     border-top: solid 1px;
+    border-bottom: solid 1px;
     font-family: "Roboto", sans-serif;
     font-size: 18px; }
     .slide-in-review .cart-wrap .cart {
@@ -744,7 +745,7 @@
   right: 0px;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7); }
+  background: rgba(0, 0, 0, 0.9); }
 
 .place-order-wrap {
   width: 50px;
@@ -2187,7 +2188,10 @@
       font-size: 22px;
       font-weight: lighter;
       margin-bottom: 15px;
-      cursor: pointer; }
+      cursor: pointer;
+      transition: .5s; }
+    .sign-in-outer-wrap form .sign-in:hover {
+      background: #B33C12; }
     .sign-in-outer-wrap form .sign-in:focus {
       outline: 0; }
   .sign-in-outer-wrap .sign-up {
@@ -2200,7 +2204,10 @@
     border-radius: 5px;
     font-size: 22px;
     font-weight: lighter;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: .5s; }
+  .sign-in-outer-wrap .sign-up:hover {
+    background: #B33C12; }
   .sign-in-outer-wrap .sign-up:focus {
     outline: 0; }
 
@@ -2271,7 +2278,10 @@
       font-size: 22px;
       font-weight: lighter;
       margin-bottom: 15px;
-      cursor: pointer; }
+      cursor: pointer;
+      transition: .5s; }
+    .sign-up-outer-wrap form .sign-in:hover {
+      background: #B33C12; }
     .sign-up-outer-wrap form .sign-in:focus {
       outline: 0; }
   .sign-up-outer-wrap .return {
@@ -2284,7 +2294,10 @@
     border-radius: 5px;
     font-size: 22px;
     font-weight: lighter;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: .5s; }
+  .sign-up-outer-wrap .return:hover {
+    background: #B33C12; }
   .sign-up-outer-wrap .return:focus {
     outline: 0; }
 

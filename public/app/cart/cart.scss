@@ -245,6 +245,7 @@ $cart-font-color: #A49E93;
     margin-top: 5px;
     background: $nav-color;
     border-top: solid 1px;
+    border-bottom: solid 1px;
     font-family: $main-font;
     font-size: 18px;
     .cart {
@@ -909,7 +910,7 @@ $cart-font-color: #A49E93;
   right: 0px;
   width: 100%;
   height: 100vh;
-  background: rgba(0,0,0,.7);
+  background: rgba(0,0,0,.9);
 }
 
 
