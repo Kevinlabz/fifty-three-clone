@@ -165,7 +165,7 @@ app.post('/api/payment', function(req, res, next){
 
 
 //===PORT====================================
-const port = 8000;
+const port = 80;
 app.listen(port, () => {
   console.log('Listening on port: ' + port);
 })
